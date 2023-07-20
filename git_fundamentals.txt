@@ -1,0 +1,125 @@
+git --version
+
+Global Configuration Variables
+	git config --global user.name "username"
+	git config --global user.email "your-email"
+
+	git config --list
+
+Need Help
+	git help <verb>
+example: git help config
+
+Initialize Repository from Existing Code
+	git init
+
+Before First Commit
+	git status (lists untracked and staged files)
+
+Ignore files that you do NOT want as part of your repositories
+	touch .gitignore
+In this file you can list files that you want Git to ignore, wild cards are also allowed to
+ignore all files of a certain type.
+
+Git has three stages:
+Working Directory: Untracked and modified files (git status)
+
+Staging Area: We put here what we want to be commited 
+
+Repository: Remote repot .git
+
+Add files to Staging Area
+	git add -A (adds all files to the staging area)
+
+	git add filename (adds file individually)
+
+Remove Files from the Staging Area
+	git reset (removes all files)
+
+	git reset filename (removes individual files)
+
+Commit Files
+	git commit -m "message" (-m stands for message)
+
+Log of commits
+	git log
+
+Cloning a Remote Repository
+	git clone <url> <path-where-to-clone>
+
+View Information about the Remote Repository
+	git remote -v lists information about the repository
+
+	git branch -a 
+
+Pushing Changes to a Remote Repository
+	git diff (shows you the changes you've made to a file) 
+
+From here it's the same as a local commit
+	git status
+	git add -A
+	git commit -m "message"
+
+Now to PUSH first we must PULL
+	git pull origin master
+Then we can PUSH
+	git push origin master
+
+Up until now we've been working on our master branch which is not really how you'd use git
+on the job, instead you'd create a branch for the feature you are working on and work off
+of that branch.
+	git branch <branch-name>
+
+To work on your desired branch
+	git checkout <branch-name>
+
+You can run "git branch" to check which branch you are working on
+
+Then you can commit to this branch normally
+
+Now to Push this commit to the remote repository from the branch we are working on
+	git push -u origin branch-name (-u associates the newly created branch to a remote counterpart
+so that later on we can pull and push without having to specify branches)
+
+Merge a Branch
+	git checkout master (locally)
+	git pull origin master
+	git branch --merged (tells you what branches have been merged)
+	git merge <branch-name> (this will be done locally)
+	git push origin master
+
+After you are done working on a feature, you can delete the branch
+	git branch --merged (to double check you already merged the branch you want to delete)
+	git branch -d <branch-name> (this deletes the branch locally) 
+	git branch -a (lists branches local and remote)
+	git push origin --delete <branch-name>
+
+To Push a Local Repository to Github.com:
+Create a new repository on GitHub.com. To avoid errors, do not initialize the new repository
+with README, license, or gitignore files. You can add these files after your project has 
+been pushed to GitHub.
+
+At the top of your repository on GitHub.com's Quick Setup page, click copy to copy the remote
+repository URL.
+
+Open Git Bash.
+
+Change the current working directory to your local project.
+
+In the Command prompt, add the URL for the remote repository where your local repository will
+be pushed.
+
+$ git remote add origin <REMOTE_URL>
+# Sets the new remote
+$ git remote -v
+# Verifies the new remote URL
+Push the changes in your local repository to GitHub.com.
+
+$ git push origin main
+# Pushes the changes in your local repository up to the remote repository you specified as 
+the origin
+
+To Update Git on Windows
+Since Git 2.16.1(2) you can use
+
+C:\> git update-git-for-windows 
