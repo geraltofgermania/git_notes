@@ -109,17 +109,18 @@ Change the current working directory to your local project.
 In the Command prompt, add the URL for the remote repository where your local repository will
 be pushed.
 
-$ git remote add origin <REMOTE_URL>
-# Sets the new remote
-$ git remote -v
-# Verifies the new remote URL
+	$ git remote add origin <REMOTE_URL>
+	# Sets the new remote
+	$git remote -v
+	# Verifies the new remote URL
+
 Push the changes in your local repository to GitHub.com.
 
-$ git push origin main
-# Pushes the changes in your local repository up to the remote repository you specified as 
-the origin
+	$ git push origin main
+	# Pushes the changes in your local repository up to the remote repository you specified as 
+	the origin
 
 To Update Git on Windows
-Since Git 2.16.1(2) you can use
+Since Git 2.16.1(2) you can use:
 
-C:\> git update-git-for-windows 
+	C:\> git update-git-for-windows 
