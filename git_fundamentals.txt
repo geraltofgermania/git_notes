@@ -17,19 +17,19 @@ Before First Commit
 	git status (lists untracked and staged files)
 
 Ignore files that you do NOT want as part of your repositories
-	touch .gitignore
-In this file you can list files that you want Git to ignore, wild cards are also allowed to
-ignore all files of a certain type.
+	touch .gitignore (this command creates the file, you can then double click and edit it to add which files to ignore)
+In this file you can list files that you want Git to ignore, wild cards are also allowed toignore all files of a certain 
+type.
 
 Git has three stages:
 Working Directory: Untracked and modified files (git status)
 
-Staging Area: We put here what we want to be commited 
+Staging Area: We put here what we want to be commited (git add)
 
-Repository: Remote repot .git
+Repository: Remote repo (.git remote link, after using push)
 
 Add files to Staging Area
-	git add -A (adds all files to the staging area)
+	git add . (adds all files to the staging area)
 
 	git add filename (adds file individually)
 
@@ -46,38 +46,41 @@ Log of commits
 
 Cloning a Remote Repository
 	git clone <url> <path-where-to-clone>
+	NOTE: do NOT include the path where to clone if you want to clone into your current directory
 
 View Information about the Remote Repository
-	git remote -v lists information about the repository
+	git remote -v (lists information about the repository)
 
-	git branch -a 
+	git branch -a (lists all the branches in the repository)
 
 Pushing Changes to a Remote Repository
-	git diff (shows you the changes you've made to a file) 
+	git diff (shows you the changes you've made to files) 
 
 From here it's the same as a local commit
-	git status
-	git add -A
+	git status (if you want to see what files have been added to the staging area, and which have not)
+	git add . (add all files to staging area)
 	git commit -m "message"
 
-Now to PUSH first we must PULL
+Now to PUSH first we must PULL, to ensure there will be no conflicts with the most resent version of the code:
 	git pull origin master
-Then we can PUSH
+Then we can PUSH:
 	git push origin master
 
 Up until now we've been working on our master branch which is not really how you'd use git
 on the job, instead you'd create a branch for the feature you are working on and work off
 of that branch.
-	git branch <branch-name>
+	git branch <branch-name> (creates a branch)
 
 To work on your desired branch
-	git checkout <branch-name>
+	git checkout <branch-name> (now changes made to files won't affect the "main," working version of the code
+	which allows us to make and test features. In other words, this makes a new copy of the files of the program
+	in which you write the new code. Then later on the files will be merged.)
 
 You can run "git branch" to check which branch you are working on
 
 Then you can commit to this branch normally
 
-Now to Push this commit to the remote repository from the branch we are working on
+Now to Push this commit to the remote repository from the branch we are working on with
 	git push -u origin branch-name (-u associates the newly created branch to a remote counterpart
 so that later on we can pull and push without having to specify branches)
 
@@ -124,3 +127,5 @@ To Update Git on Windows
 Since Git 2.16.1(2) you can use:
 
 	C:\> git update-git-for-windows 
+
+If Git is not up to date, there WILL be issues with connectivity to GitHub.
